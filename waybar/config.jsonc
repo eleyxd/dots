@@ -5,7 +5,7 @@
   "spacing": 0,
   "height": 32,
   "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["clock", "custom/update", "custom/screenrecording-indicator"],
+  "modules-center": ["clock"],
   "modules-right": [
     "group/tray-expander",
     "bluetooth",
@@ -33,30 +33,16 @@
     "persistent-workspaces": {
     }
   },
-  "custom/nixconfig": {
-    "format": "<span></span>",
-    "on-click": "nixconfig-menu",
-    "tooltip-format": "Menu\n\nSuper + Alt + Space"
-  },
-  "custom/update": {
-    "format": "",
-    "exec": "nixconfig-update-available",
-    "on-click": "nixconfig-launch-floating-terminal-with-presentation nixconfig-update",
-    "tooltip-format": "Omarchy update available",
-    "signal": 7,
-    "interval": 3600
-  },
 
   "cpu": {
     "interval": 5,
     "format": "󰍛",
-    "on-click": "$TERMINAL -e btop"
+    "on-click": "kitty --hold btop"
   },
   "clock": {
     "format": "{:L%A %H:%M}",
     "format-alt": "{:L%d %B W%V %Y}",
     "tooltip": false,
-    "on-click-right": "nixconfig-cmd-tzupdate"
   },
   "network": {
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
@@ -69,7 +55,6 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "spacing": 1,
-    "on-click": "nixconfig-launch-wifi"
   },
   "battery": {
     "format": "{capacity}% {icon}",
@@ -84,7 +69,6 @@
     "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
     "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
     "interval": 5,
-    "on-click": "nixconfig-menu power",
     "states": {
       "warning": 20,
       "critical": 10
@@ -99,7 +83,7 @@
   },
   "pulseaudio": {
     "format": "{icon}",
-    "on-click": "$TERMINAL --class=Wiremix -e wiremix",
+    "on-click": "kitty --hold wiremix",
     "on-click-right": "pamixer -t",
     "tooltip-format": "Playing at {volume}%",
     "scroll-step": 5,
@@ -119,12 +103,6 @@
   "custom/expand-icon": {
     "format": " ",
     "tooltip": false
-  },
-  "custom/screenrecording-indicator": {
-    "on-click": "nixconfig-cmd-screenrecord",
-    "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
-    "signal": 8,
-    "return-type": "json"
   },
   "tray": {
     "icon-size": 12,

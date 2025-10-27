@@ -1,7 +1,7 @@
-@import "../waybar/waybar.css";
+
+@define-color foreground #100F0F;
 
 window#waybar {
-  background-color: @background;
   color: @foreground;
   min-height: 0;
   font-family: Perun, Adwaita Sans, Symbols Nerd Font Mono;
@@ -23,7 +23,7 @@ font-size: 14px;
   padding: 0 6px;
   margin: 0 1.5px;
   min-width: 9px;
-  color: @foreground;
+  color: @foreground
 }
 
 #workspaces button.empty {
